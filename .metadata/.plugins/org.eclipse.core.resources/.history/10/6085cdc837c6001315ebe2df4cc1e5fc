@@ -1,0 +1,9 @@
+package ca.sinn.rikalgame.screens;
+
+public class WorldMapScreen {
+
+	public WorldMapScreen() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

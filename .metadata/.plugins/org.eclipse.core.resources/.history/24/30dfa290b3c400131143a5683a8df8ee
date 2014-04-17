@@ -1,0 +1,41 @@
+package ca.sinn.rikalgame.ui;
+
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.utils.Array;
+
+public class RIKALSkin extends Skin {
+
+	public RIKALSkin() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public RIKALSkin(FileHandle skinFile) {
+		super(skinFile);
+		// TODO Auto-generated constructor stub
+	}
+
+	public RIKALSkin(TextureAtlas atlas) {
+		super(atlas);
+		// TODO Auto-generated constructor stub
+	}
+
+	public RIKALSkin(FileHandle skinFile, TextureAtlas atlas) {
+		super(skinFile, atlas);
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public void addRegions(TextureAtlas atlas) {
+		Array<AtlasRegion> regions = atlas.getRegions();
+		for (int i = 0, n = regions.size; i < n; i++) {
+			AtlasRegion region = regions.get(i);
+			//region.flip(false, true);
+			add(region.name, region, TextureRegion.class);
+		}
+	}
+
+}

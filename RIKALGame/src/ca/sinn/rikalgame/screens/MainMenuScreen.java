@@ -2,36 +2,85 @@ package ca.sinn.rikalgame.screens;
 
 import java.util.Objects;
 
+import ca.sinn.rikalgame.GameRunner;
 import ca.sinn.rikalgame.resources.Resources;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+
+import static com.badlogic.gdx.Input.*;
+
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.TextureAtlasData.Region;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Event;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 
 public class MainMenuScreen implements Screen {
 	
-	private final SpriteBatch batch;
-	private final OrthographicCamera camera;
-	private final Sprite sprite = new Sprite(new Texture(Resources.getImageFile("introscreen.png")));
+	private final Stage stage;
+	private final Sprite sprite;
 	
-	public MainMenuScreen(SpriteBatch batch, OrthographicCamera camera) {
-		this.batch = Objects.requireNonNull(batch);
-		this.camera = Objects.requireNonNull(camera);
-		this.sprite.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+	{
+		sprite =  new Sprite(new Texture(Resources.getImageFile("introscreen.png")));
+	}
+	
+	public MainMenuScreen(Stage stage) {
+		this.stage = Objects.requireNonNull(stage);
+		this.sprite.setBounds(0, 0, stage.getWidth(), stage.getHeight());
+		Gdx.input.setInputProcessor(stage);
+		stage.addActor(new Actor() {
+			
+			@Override
+			public void draw(SpriteBatch spriteBatch, float alpha) {
+				sprite.draw(spriteBatch);
+			}
+			
+		});
+		Skin skin = new Skin();
+		final TextButton button;
+		BitmapFont font = new BitmapFont();
+		TextButtonStyle textButtonStyle = new TextButtonStyle();
+		TextureAtlas buttonAtlas = Resources.getPack("button_1");
+		
+		textButtonStyle.font = font;
+		skin.addRegions(buttonAtlas);
+		textButtonStyle.up = skin.getDrawable("button_unclicked");
+		textButtonStyle.down = skin.getDrawable("button_clicked");
+		button = new TextButton("FUCK THIS SHIT", textButtonStyle);
+		button.setBounds(500, 150, 200, 50);
+		final Stage s = this.stage;
+		EventListener listener = new InputListener() {
+			
+			@Override
+			public boolean touchDown(InputEvent evt, float x, float y, int pointer, int button) {
+				if (button == Buttons.LEFT)
+					GameRunner.getGame().setScreen(new WorldMapScreen(s));
+				return false;
+			}
+		};
+		// button.addCaptureListener(listener);
+		button.addListener(listener);
+		stage.addActor(button);
 	}
 	
 	@Override
 	public void render(float delta) {
-		this.camera.update();
-		this.batch.setProjectionMatrix(camera.combined);
-		this.batch.begin();
-		{
-			this.sprite.draw(this.batch);
-		}
-		this.batch.end();
+		stage.draw();
+		stage.act(delta);
 	}
 
 	@Override

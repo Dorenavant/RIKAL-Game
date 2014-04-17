@@ -1,0 +1,23 @@
+package ca.sinn.rikalgame;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+
+import ca.sinn.rikalgame.screens.MainMenuScreen;
+
+public class GameRunner extends com.badlogic.gdx.Game {
+	@Override
+	public void create() {
+	    //OrthographicCamera camera = new OrthographicCamera();
+		//camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		//SpriteBatch batch = new SpriteBatch();
+		Stage stage = new Stage();
+		OrthographicCamera camera = (OrthographicCamera) stage.getCamera();
+		camera.setToOrtho(true);
+		// ((OrthographicCamera) stage.getCamera()).setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		this.setScreen(new MainMenuScreen(stage));
+	}
+}
+

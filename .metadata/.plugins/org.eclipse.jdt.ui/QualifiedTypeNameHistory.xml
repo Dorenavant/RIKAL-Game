@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.TextureAtlas"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.TextureRegion"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.TextureAtlas.TextureAtlasData.Region"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.Camera"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.OrthographicCamera"/>
+<fullyQualifiedTypeName name="ca.sinn.rikalgame.ui.RIKALSkin"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.scenes.scene2d.EventListener"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.scenes.scene2d.InputListener"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.scenes.scene2d.InputEvent"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Input"/>
+</qualifiedTypeNameHistroy>
