@@ -68,7 +68,7 @@ public class MainMenuScreen implements Screen {
 			public boolean touchDown(InputEvent evt, float x, float y, int pointer, int button) {
 				if (button == Buttons.LEFT)
 					stage.clear();
-					GameRunner.getGame().setScreen(new WorldMapScreen(stage));
+					GameRunner.getGame().setScreen(new WorldMapScreen(s));
 				return false;
 			}
 		};

@@ -38,7 +38,7 @@ public class MainMenuScreen implements Screen {
 		sprite =  new Sprite(new Texture(Resources.getImageFile("introscreen.png")));
 	}
 	
-	public MainMenuScreen(final Stage stage) {
+	public MainMenuScreen(Stage stage) {
 		this.stage = Objects.requireNonNull(stage);
 		this.sprite.setBounds(0, 0, stage.getWidth(), stage.getHeight());
 		Gdx.input.setInputProcessor(stage);
@@ -62,13 +62,13 @@ public class MainMenuScreen implements Screen {
 		textButtonStyle.down = skin.getDrawable("button_clicked");
 		button = new TextButton("PLAY WITH RAHUL'S STUPIDITY", textButtonStyle);
 		button.setBounds(500, 150, 200, 50);
+		final Stage s = this.stage;
 		EventListener listener = new InputListener() {
 			
 			@Override
 			public boolean touchDown(InputEvent evt, float x, float y, int pointer, int button) {
 				if (button == Buttons.LEFT)
-					stage.clear();
-					GameRunner.getGame().setScreen(new WorldMapScreen(stage));
+					GameRunner.getGame().setScreen(new WorldMapScreen(s));
 				return false;
 			}
 		};

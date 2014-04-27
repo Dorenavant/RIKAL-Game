@@ -10,4 +10,7 @@
 <fullyQualifiedTypeName name="com.badlogic.gdx.scenes.scene2d.InputListener"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.scenes.scene2d.InputEvent"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.Input"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Game"/>
+<fullyQualifiedTypeName name="ca.sinn.rikalgame.screens.WorldMapScreen"/>
+<fullyQualifiedTypeName name="ca.sinn.rikalgame.GameRunner"/>
 </qualifiedTypeNameHistroy>
