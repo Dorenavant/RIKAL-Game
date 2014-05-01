@@ -34,7 +34,6 @@ public class MainMenuScreen implements Screen {
 	
 	private final Stage stage;
 	private final Sprite sprite;
-	private boolean active = true;
 	
 	{
 		sprite =  new Sprite(new Texture(Resources.getImageFile("introscreen.png")));
@@ -44,15 +43,14 @@ public class MainMenuScreen implements Screen {
 		this.stage = Objects.requireNonNull(stage);
 		this.sprite.setBounds(0, 0, stage.getWidth(), stage.getHeight());
 		Gdx.input.setInputProcessor(stage);
-		final Actor background = new Actor() {
+		stage.addActor(new Actor() {
 			
 			@Override
 			public void draw(SpriteBatch spriteBatch, float alpha) {
 				sprite.draw(spriteBatch);
 			}
 			
-		};
-		stage.addActor(background);
+		});
 		Skin skin = new Skin();
 		final TextButton button;
 		BitmapFont font = new BitmapFont();
@@ -65,16 +63,14 @@ public class MainMenuScreen implements Screen {
 		textButtonStyle.down = skin.getDrawable("button_clicked");
 		button = new TextButton("PLAY WITH RAHUL'S STUPIDITY", textButtonStyle);
 		button.setBounds(500, 150, 200, 50);
-		
 		EventListener listener = new InputListener() {
 			
 			@Override
-			public boolean touchDown(InputEvent evt, float x, float y, int pointer, int b) {
-				if (b == Buttons.LEFT) {	
-					// stage.clear();
-					active = false;
-					GameRunner.getGame().setScreen(new WorldMapScreen(new Stage()));
-				}
+			public boolean touchDown(InputEvent evt, float x, float y, int pointer, int button) {
+				if (button == Buttons.LEFT)	
+					stage.clear();
+					Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+					GameRunner.getGame().setScreen(new WorldMapScreen(stage));
 				return false;
 			}
 		};
@@ -85,7 +81,6 @@ public class MainMenuScreen implements Screen {
 	
 	@Override
 	public void render(float delta) {
-		if (!active) return;
 		stage.draw();
 		stage.act(delta);
 	}
@@ -103,7 +98,7 @@ public class MainMenuScreen implements Screen {
 
 	@Override
 	public void hide() {
-		stage.clear();
+		// TODO Auto-generated method stub
 
 	}
 

@@ -14,7 +14,6 @@ INDEX VERSION 1.126+D:\Users\sinn\Documents\GitHub\RIKAL-Game\.metadata\.plugins
 2573849602.index
 3409443505.index
 182735413.index
-3884167033.index
 2853517442.index
 3833317502.index
 2394657268.index

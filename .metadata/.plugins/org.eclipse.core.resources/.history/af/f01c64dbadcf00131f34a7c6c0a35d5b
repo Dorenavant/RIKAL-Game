@@ -34,7 +34,6 @@ public class MainMenuScreen implements Screen {
 	
 	private final Stage stage;
 	private final Sprite sprite;
-	private boolean active = true;
 	
 	{
 		sprite =  new Sprite(new Texture(Resources.getImageFile("introscreen.png")));
@@ -72,7 +71,8 @@ public class MainMenuScreen implements Screen {
 			public boolean touchDown(InputEvent evt, float x, float y, int pointer, int b) {
 				if (b == Buttons.LEFT) {	
 					// stage.clear();
-					active = false;
+					stage.dispose();
+					Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 					GameRunner.getGame().setScreen(new WorldMapScreen(new Stage()));
 				}
 				return false;
@@ -85,7 +85,6 @@ public class MainMenuScreen implements Screen {
 	
 	@Override
 	public void render(float delta) {
-		if (!active) return;
 		stage.draw();
 		stage.act(delta);
 	}
@@ -103,7 +102,7 @@ public class MainMenuScreen implements Screen {
 
 	@Override
 	public void hide() {
-		stage.clear();
+		// TODO Auto-generated method stub
 
 	}
 
