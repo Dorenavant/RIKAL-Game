@@ -12,6 +12,11 @@
 <fullyQualifiedTypeName name="com.badlogic.gdx.Input"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.Game"/>
 <fullyQualifiedTypeName name="ca.sinn.rikalgame.screens.WorldMapScreen"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.Sprite"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.SpriteBatch"/>
+<fullyQualifiedTypeName name="ca.sinn.rikalgame.screens.actors.SpriteActor"/>
+<fullyQualifiedTypeName name="java.util.Objects"/>
 <fullyQualifiedTypeName name="ca.sinn.rikalgame.GameRunner"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.Gdx"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.GL10"/>
 </qualifiedTypeNameHistroy>

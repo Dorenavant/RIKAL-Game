@@ -1,0 +1,42 @@
+package ca.sinn.rikalgame;
+
+import java.util.Objects;
+
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+
+import ca.sinn.rikalgame.screens.MainMenuScreen;
+
+public class GameRunner extends com.badlogic.gdx.Game {
+	
+	private static GameRunner GAME_RUNNER;
+	
+	public GameRunner() {
+	}
+	
+	@Override
+	public void create() {
+		if (GAME_RUNNER != null) {
+			throw new RuntimeException("Only one instance of game possible");
+		}
+	    //OrthographicCamera camera = new OrthographicCamera();
+		//camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		//SpriteBatch batch = new SpriteBatch();
+		GAME_RUNNER = this;
+		Stage stage = new Stage();
+		this.setScreen(new MainMenuScreen(stage));
+	}
+	
+	public static Game getGame() {
+		return GAME_RUNNER;
+	}
+	
+	public static Stage initStage(final Stage stage) {
+		Objects.requireNonNull(stage);
+		Gdx.input.setInputProcessor(stage);
+		return stage;
+	}
+	
+}
+

@@ -1,0 +1,11 @@
+package ca.sinn.rikalgame.screens.actors;
+
+import com.badlogic.gdx.scenes.scene2d.Actor;
+
+public class SpriteActor extends Actor {
+
+	public SpriteActor() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

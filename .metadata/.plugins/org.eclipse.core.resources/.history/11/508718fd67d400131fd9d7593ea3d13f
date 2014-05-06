@@ -1,0 +1,32 @@
+package ca.sinn.rikalgame.screens.actors;
+
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+
+public class SpriteActor extends Actor {
+	
+	private final Sprite sprite;
+	private boolean isVisible = true;
+	
+	public SpriteActor(Sprite sprite) {
+		this.sprite = java.util.Objects.requireNonNull(sprite);
+	}
+	
+	@Override
+	public void draw(SpriteBatch batch, float alpha) {
+		if (!isVisible()) {
+			return;
+		}
+		sprite.draw(batch, alpha);
+	}
+	
+	public boolean isVisible() {
+		return isVisible;
+	}
+	
+	public void setVisible(boolean value) {
+		this.isVisible = value;
+	}
+	
+}

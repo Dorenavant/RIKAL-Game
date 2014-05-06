@@ -1,0 +1,65 @@
+package ca.sinn.rikalgame.screens;
+
+import java.util.Objects;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+
+public class StagedScreen implements Screen {
+	
+	protected static Stage initStage(final Stage stage) {
+		Objects.requireNonNull(stage);
+		Gdx.input.setInputProcessor(stage);
+		return stage;
+	}
+	
+	protected final Stage stage;
+	
+	public StagedScreen(final Stage stage) {
+		this.stage = initStage(stage);
+	}
+
+	@Override
+	public void render(float delta) {
+		stage.draw();
+		stage.act(delta);
+	}
+
+	@Override
+	public void resize(int width, int height) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void show() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void hide() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void pause() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

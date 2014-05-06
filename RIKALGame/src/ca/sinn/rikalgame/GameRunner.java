@@ -1,9 +1,11 @@
 package ca.sinn.rikalgame;
 
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-
 import ca.sinn.rikalgame.screens.MainMenuScreen;
+
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class GameRunner extends com.badlogic.gdx.Game {
 	
@@ -23,6 +25,12 @@ public class GameRunner extends com.badlogic.gdx.Game {
 		GAME_RUNNER = this;
 		Stage stage = new Stage();
 		this.setScreen(new MainMenuScreen(stage));
+	}
+	
+	@Override
+	public void render() {
+		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		super.render();
 	}
 	
 	public static Game getGame() {

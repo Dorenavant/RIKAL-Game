@@ -1,0 +1,27 @@
+package ca.sinn.rikalgame.screens;
+
+import ca.sinn.rikalgame.resources.Resources;
+import ca.sinn.rikalgame.screens.actors.SpriteActor;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+
+public class WorldMapScreen extends StagedScreen {
+	
+	private final SpriteActor worldMap;
+	
+	{
+		Sprite sprite =  new Sprite(new Texture(Resources.getImageFile("world_map_screen.png")));
+		sprite.setBounds(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		worldMap = new SpriteActor(sprite);
+	}
+	
+	public WorldMapScreen(final Stage stage) {
+		super(stage);
+		this.worldMap.setBounds(0, 400, stage.getWidth(), stage.getHeight());
+		stage.addActor(worldMap);
+	}
+
+}
